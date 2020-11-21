@@ -13,6 +13,9 @@ global.fetch = fetchCookie(fetch);
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.send('working');
+});
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   console.log('req.body:', req);
