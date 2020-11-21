@@ -59,6 +59,6 @@ app.get('/api/data/:user_id/ride/:ride_id', async (req, res) => {
         res.json({ error: 'no rides found' });
     }
 });
-app.listen(8080, () => {
-    console.log('listening on 8080');
+app.listen(process.env.PORT, () => {
+    console.log(`listening on ${process.env.PORT}`);
 });
