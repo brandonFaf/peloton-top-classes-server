@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc -watch",
     "dev": "nodemon ./build/index.js",
-    "start": "tsc && node ./build/index.js"
+    "start": "tsc && node ./build/index.js",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.7",
