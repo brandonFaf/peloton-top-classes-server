@@ -1,0 +1,14 @@
+.env
+node_modules
+.DS_Store
+build/authenticate.js
+build/getData.js
+build/getDetails.js
+build/getWorkoutList.js
+build/index.js
+build/run.js
+build/types/details.js
+build/types/stats.js
+build/types/workout.js
+build/utils/instructors.js
+build/utils/logger.js
