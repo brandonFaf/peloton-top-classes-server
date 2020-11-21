@@ -4,7 +4,6 @@
   "compilerOptions": {
     "preserveConstEnums": true,
     "outDir": "./build",
-    "resolveJsonModule": true,
     "noImplicitAny": false
   },
 
