@@ -22,9 +22,6 @@ app.get('/', (req, res) => {
 });
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log('req.body:', req);
-    console.log('password:', password);
-    console.log('username:', username);
     if (!username || !password) {
         res.status(400);
         res.json({ error: 'username or password missing' });
