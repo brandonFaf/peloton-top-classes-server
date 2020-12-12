@@ -15,14 +15,14 @@ export default async user_id => {
           id: w.id,
           date,
           totalOutput: (w.total_work / 1000).toFixed(2),
-          title: w.peloton.ride.title,
-          rideId: w.peloton.ride.id,
-          difficulty: w.peloton.ride.difficulty_estimate,
+          title: w.peloton.ride?.title,
+          rideId: w.peloton.ride?.id,
+          difficulty: w.peloton.ride?.difficulty_estimate,
           instructor:
-            instructors.find(i => i.id === w.peloton.ride.instructor_id)
+            instructors.find(i => i.id === w.peloton.ride?.instructor_id)
               ?.name ?? '',
-          difficultyLevel: w.peloton.ride.difficulty_level,
-          duration: w.peloton.ride.duration
+          difficultyLevel: w.peloton.ride?.difficulty_level,
+          duration: w.peloton.ride?.duration
         };
       }
     )
@@ -32,6 +32,19 @@ export default async user_id => {
         acc.count++;
         return acc;
       },
-      { workouts: { 5: [], 10: [], 15: [], 20: [], 30: [], 45: [] }, count: 0 }
+      {
+        workouts: {
+          5: [],
+          10: [],
+          15: [],
+          20: [],
+          30: [],
+          45: [],
+          60: [],
+          75: [],
+          90: []
+        },
+        count: 0
+      }
     );
 };
