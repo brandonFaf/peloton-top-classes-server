@@ -52,6 +52,7 @@ app.get('/api/data/:user_id/ride/:ride_id', async (req, res) => {
     res.json({ error: 'no rides found' });
   }
 });
+authenticate(process.env.username, process.env.password);
 app.listen(process.env.PORT, () => {
   console.log(`listening on ${process.env.PORT}`);
 });

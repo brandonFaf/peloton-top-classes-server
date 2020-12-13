@@ -7,4 +7,9 @@ declare namespace NodeJS {
   interface Global {
     fetch: unknown;
   }
+  interface ProcessEnv {
+    PORT: number;
+    username: string;
+    password: string;
+  }
 }
