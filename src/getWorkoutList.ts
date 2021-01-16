@@ -1,9 +1,23 @@
 import { Workout } from './types/workout';
 import instructors from './utils/instructors';
-export default async user_id => {
+import fetch from 'node-fetch';
+
+export default async (user_id, session_id) => {
+  console.log('session_id:', session_id);
+
   const res = await fetch(
-    `https://api.onepeloton.com/api/user/${user_id}/workouts?joins=peloton.ride&limit=600`
+    `https://api.onepeloton.com/api/user/${user_id}/workouts?joins=peloton.ride&limit=600`,
+    {
+      headers: {
+        cookie: `peloton_session_id=${session_id}`
+      }
+    }
   );
+  if (res.status != 200) {
+    console.log(res.status);
+    const data = await res.json();
+    throw { status: res.status, data };
+  }
   const data = await res.json();
   return data.data
     .filter(w => w.fitness_discipline == 'cycling')
