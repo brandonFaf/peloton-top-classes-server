@@ -7,6 +7,6 @@ export default async (request: NowRequest, response: NowResponse) => {
     response.setHeader('Set-Cookie', [`session_id=${session_id}`]);
     response.status(200).json({ user_id, session_id });
   } else {
-    response.status(405).send('method not allowed');
+    response.status(200).send('ok');
   }
 };
