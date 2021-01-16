@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 export default async (username: string, password: string) => {
   const res = await fetch('https://api.onepeloton.com/auth/login', {
     method: 'POST',
