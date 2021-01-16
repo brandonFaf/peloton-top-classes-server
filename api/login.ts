@@ -6,7 +6,9 @@ export default async (request: NowRequest, response: NowResponse) => {
     const { user_id, session_id } = await auth(username, password);
     response.setHeader('Set-Cookie', [`session_id=${session_id}`]);
     response.status(200).json({ user_id, session_id });
-  } else {
+  } else if (request.method == 'OPTIONS') {
     response.status(200).send('ok');
+  } else {
+    response.status(405).send('method not allowed');
   }
 };
