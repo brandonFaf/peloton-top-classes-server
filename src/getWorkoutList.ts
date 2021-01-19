@@ -14,7 +14,6 @@ export default async (user_id, session_id) => {
     }
   );
   if (res.status != 200) {
-    console.log(res.status);
     const data = await res.json();
     throw { status: res.status, data };
   }
