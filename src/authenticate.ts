@@ -4,7 +4,7 @@ export default async (username: string, password: string) => {
     method: 'POST',
     body: JSON.stringify({
       username_or_email: username,
-      password: password
+      password
     })
   });
   const { user_id, session_id } = await res.json();
