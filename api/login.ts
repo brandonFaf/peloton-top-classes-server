@@ -10,6 +10,7 @@ const login = async (request: NowRequest, response: NowResponse) => {
     const { user_id, session_id } = await auth(username, password);
     var setCookie = cookie.serialize('session_id', session_id, {
       sameSite: 'none',
+      httpOnly: true,
       secure: true
     });
     console.log('session_id:', session_id);
