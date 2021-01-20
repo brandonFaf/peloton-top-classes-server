@@ -9,7 +9,8 @@ const login = async (request: NowRequest, response: NowResponse) => {
     var setCookie = cookie.serialize('session_id', session_id, {
       sameSite: 'none',
       httpOnly: true,
-      secure: true
+      secure: true,
+      path: '/'
     });
     response.setHeader('Set-Cookie', setCookie);
     response.status(200).json({ user_id, session_id });
