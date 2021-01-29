@@ -10,7 +10,8 @@ const login = async (request: NowRequest, response: NowResponse) => {
       sameSite: 'none',
       httpOnly: true,
       secure: true,
-      path: '/'
+      path: '/',
+      maxAge: 2592000
     });
     response.setHeader('Set-Cookie', setCookie);
     response.status(200).json({ user_id, session_id });
